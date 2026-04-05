@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A6A64C852F82984200AE23EF /* StockTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64C842F82984200AE23EF /* StockTrackerApp.swift */; };
-		A6A64C872F82984200AE23EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64C862F82984200AE23EF /* ContentView.swift */; };
 		A6A64C892F82984B00AE23EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A64C882F82984B00AE23EF /* Assets.xcassets */; };
 		A6A64C8C2F82984B00AE23EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A64C8B2F82984B00AE23EF /* Preview Assets.xcassets */; };
 		A6A64C962F82984C00AE23EF /* StockTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64C952F82984C00AE23EF /* StockTrackerTests.swift */; };
 		A6A64CA02F82984C00AE23EF /* StockTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64C9F2F82984C00AE23EF /* StockTrackerUITests.swift */; };
 		A6A64CA22F82984C00AE23EF /* StockTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64CA12F82984C00AE23EF /* StockTrackerUITestsLaunchTests.swift */; };
+		A6A64CAF2F82A48000AE23EF /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64CAE2F82A48000AE23EF /* Stock.swift */; };
+		A6A64CB12F82A4CB00AE23EF /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64CB02F82A4CB00AE23EF /* WebSocketService.swift */; };
+		A6A64CB32F82A56800AE23EF /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64CB22F82A56800AE23EF /* StockViewModel.swift */; };
+		A6A64CB72F82ABB600AE23EF /* SymbolsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64CB62F82ABB600AE23EF /* SymbolsListView.swift */; };
+		A6A64CB92F82AC0700AE23EF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A64CB82F82AC0700AE23EF /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,6 @@
 /* Begin PBXFileReference section */
 		A6A64C812F82984200AE23EF /* StockTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A64C842F82984200AE23EF /* StockTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTrackerApp.swift; sourceTree = "<group>"; };
-		A6A64C862F82984200AE23EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A6A64C882F82984B00AE23EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6A64C8B2F82984B00AE23EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A6A64C912F82984C00AE23EF /* StockTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +47,11 @@
 		A6A64C9B2F82984C00AE23EF /* StockTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A64C9F2F82984C00AE23EF /* StockTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTrackerUITests.swift; sourceTree = "<group>"; };
 		A6A64CA12F82984C00AE23EF /* StockTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A6A64CAE2F82A48000AE23EF /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		A6A64CB02F82A4CB00AE23EF /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		A6A64CB22F82A56800AE23EF /* StockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewModel.swift; sourceTree = "<group>"; };
+		A6A64CB62F82ABB600AE23EF /* SymbolsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsListView.swift; sourceTree = "<group>"; };
+		A6A64CB82F82AC0700AE23EF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +102,11 @@
 		A6A64C832F82984200AE23EF /* StockTracker */ = {
 			isa = PBXGroup;
 			children = (
+				A6A64CBE2F82B6DB00AE23EF /* ViewModels */,
+				A6A64CBD2F82B6C200AE23EF /* Views */,
+				A6A64CBC2F82B69F00AE23EF /* Networking */,
+				A6A64CBB2F82B64300AE23EF /* Model */,
 				A6A64C842F82984200AE23EF /* StockTrackerApp.swift */,
-				A6A64C862F82984200AE23EF /* ContentView.swift */,
 				A6A64C882F82984B00AE23EF /* Assets.xcassets */,
 				A6A64C8A2F82984B00AE23EF /* Preview Content */,
 			);
@@ -125,6 +136,39 @@
 				A6A64CA12F82984C00AE23EF /* StockTrackerUITestsLaunchTests.swift */,
 			);
 			path = StockTrackerUITests;
+			sourceTree = "<group>";
+		};
+		A6A64CBB2F82B64300AE23EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6A64CAE2F82A48000AE23EF /* Stock.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A6A64CBC2F82B69F00AE23EF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A6A64CB02F82A4CB00AE23EF /* WebSocketService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A6A64CBD2F82B6C200AE23EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A6A64CB82F82AC0700AE23EF /* DetailView.swift */,
+				A6A64CB62F82ABB600AE23EF /* SymbolsListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A6A64CBE2F82B6DB00AE23EF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A6A64CB22F82A56800AE23EF /* StockViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6A64C872F82984200AE23EF /* ContentView.swift in Sources */,
+				A6A64CB92F82AC0700AE23EF /* DetailView.swift in Sources */,
+				A6A64CB32F82A56800AE23EF /* StockViewModel.swift in Sources */,
+				A6A64CB12F82A4CB00AE23EF /* WebSocketService.swift in Sources */,
 				A6A64C852F82984200AE23EF /* StockTrackerApp.swift in Sources */,
+				A6A64CB72F82ABB600AE23EF /* SymbolsListView.swift in Sources */,
+				A6A64CAF2F82A48000AE23EF /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

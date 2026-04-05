@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct StockTrackerApp: App {
+    @StateObject private var webSocketService = WebSocketService()
+    @StateObject private var stockViewModel = StockViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SymbolsListView()
+                .environmentObject(webSocketService)
+                .environmentObject(stockViewModel)
         }
     }
 }
