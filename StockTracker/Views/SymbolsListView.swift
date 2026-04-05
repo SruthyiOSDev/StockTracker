@@ -7,7 +7,6 @@ struct SymbolsListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Connection Status Header
                 HStack {
                     Circle()
                         .fill(ws.status == .connected ? Color.green : Color.red)
@@ -18,7 +17,6 @@ struct SymbolsListView: View {
                 }
                 .padding(.top)
                 
-                // Toggle Button
                 Button(action: {
                     ws.status == .connected ? ws.disconnect() : ws.connect()
                 }) {
@@ -28,16 +26,12 @@ struct SymbolsListView: View {
                 .buttonStyle(.borderedProminent)
                 .padding(.horizontal)
 
-                // Sorting Controls
                 HStack(spacing: 20) {
                     Button("Sort by Price") { vm.sortByPrice() }
                     Button("Sort by Change") { vm.sortByChange() }
                 }
                 .padding(.vertical, 5)
-
-                // Reactive List
                 List(vm.stocks) { stock in
-                    // Pass only the symbol to DetailView to keep it reactive
                     NavigationLink(destination: DetailView(symbol: stock.symbol)) {
                         StockRow(stock: stock)
                     }
@@ -49,7 +43,6 @@ struct SymbolsListView: View {
     }
 }
 
-// Subview for cleaner code and better performance
 struct StockRow: View {
     let stock: Stock
     

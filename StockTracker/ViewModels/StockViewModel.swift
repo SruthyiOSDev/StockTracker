@@ -41,14 +41,13 @@ class StockViewModel: ObservableObject {
     
         init(webSocketService: WebSocketService) {
             webSocketService.$latestUpdate
-                .receive(on: DispatchQueue.main) // Ensure UI updates happen on the main thread
+                .receive(on: DispatchQueue.main)
                 .sink { [weak self] update in
-                    // 3. Automatically apply updates whenever they arrive
                     for (symbol, price) in update {
                         self?.applyUpdate(symbol: symbol, newPrice: price)
                     }
                 }
-                .store(in: &cancellables) // Keep the subscription alive
+                .store(in: &cancellables) 
         }
     func sortByPrice() {
         stocks.sort { $0.price > $1.price }

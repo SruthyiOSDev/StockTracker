@@ -9,10 +9,8 @@ import SwiftUI
 
 @main
 struct StockTrackerApp: App {
-    // 1. Initialize the service first
+   
     @StateObject private var webSocketService = WebSocketService()
-    
-    // 2. Initialize the ViewModel and pass the service into it
     @StateObject private var stockViewModel: StockViewModel
 
     init() {
