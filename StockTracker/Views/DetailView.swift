@@ -14,12 +14,12 @@ struct DetailView: View {
     var body: some View {
         VStack(spacing: 20) {
             Text(stock.symbol)
-                .font(.largeTitle).bold() // [cite: 19]
+                .font(.largeTitle).bold()
             
             Text("$\(String(format: "%.2f", stock.price))")
-                .font(.title2) // [cite: 20]
+                .font(.title2)
             
-            Text(stock.description) // [cite: 21]
+            Text(stock.description)
                 .padding()
             
             Spacer()
