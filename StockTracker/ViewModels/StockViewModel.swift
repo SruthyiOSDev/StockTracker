@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 class StockViewModel: ObservableObject {
+    private var cancellables = Set<AnyCancellable>()
+    
     @Published var stocks: [Stock] = [
         Stock(symbol: "AAPL", name: "Apple Inc.", price: 175.20, priceChange: 1.2, description: "Consumer electronics, software, and online services."),
         Stock(symbol: "NVDA", name: "NVIDIA Corp.", price: 880.50, priceChange: 5.4, description: "Leader in artificial intelligence computing and GPUs."),
@@ -36,6 +39,17 @@ class StockViewModel: ObservableObject {
         Stock(symbol: "TMO", name: "Thermo Fisher", price: 580.40, priceChange: 0.9, description: "Scientific instruments, software, and services.")
     ]
     
+        init(webSocketService: WebSocketService) {
+            webSocketService.$latestUpdate
+                .receive(on: DispatchQueue.main) // Ensure UI updates happen on the main thread
+                .sink { [weak self] update in
+                    // 3. Automatically apply updates whenever they arrive
+                    for (symbol, price) in update {
+                        self?.applyUpdate(symbol: symbol, newPrice: price)
+                    }
+                }
+                .store(in: &cancellables) // Keep the subscription alive
+        }
     func sortByPrice() {
         stocks.sort { $0.price > $1.price }
     }
