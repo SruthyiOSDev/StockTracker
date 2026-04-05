@@ -43,4 +43,13 @@ class StockViewModel: ObservableObject {
     func sortByChange() {
         stocks.sort { $0.priceChange > $1.priceChange } 
     }
+   
+    func applyUpdate(symbol: String, newPrice: Double) {
+        if let index = stocks.firstIndex(where: { $0.symbol == symbol }) {
+            let oldPrice = stocks[index].price
+            stocks[index].price = newPrice
+            let change = ((newPrice - oldPrice) / oldPrice) * 100
+            stocks[index].priceChange = change
+        }
+    }
 }

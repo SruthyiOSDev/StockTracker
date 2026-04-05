@@ -36,7 +36,6 @@ class WebSocketService: ObservableObject {
     }
 
     private func startMockingPrices() {
-        // Generates random updates to echo back
         timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { _ in
             let randomPrice = Double.random(in: 100...150)
             let message = URLSessionWebSocketTask.Message.string("{\"AAPL\": \(randomPrice)}")
@@ -55,17 +54,15 @@ class WebSocketService: ObservableObject {
             switch result {
             case .success(let message):
                 if case .string(let text) = message {
-                    // 1. Convert the string back to Data
                     if let data = text.data(using: .utf8),
                        let decoded = try? JSONSerialization.jsonObject(with: data) as? [String: Double] {
-                        
-                        // 2. Switch to the Main Thread to update the UI
+                    
                         DispatchQueue.main.async {
                             self?.latestUpdate = decoded
                         }
                     }
                 }
-                // 3. Keep listening for the next message
+        
                 self?.receiveMessage()
                 
             case .failure(let error):
